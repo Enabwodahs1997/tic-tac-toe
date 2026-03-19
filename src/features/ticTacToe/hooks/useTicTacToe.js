@@ -2,7 +2,10 @@ import { useMemo, useState } from 'react'
 import { calculateWinner, isDraw, nextTurnLabel } from '../utils/gameLogic'
 
 const emptyBoard = Array(9).fill(null)
-
+//tic tac toe hook to manage game state and logic it makes the board state, 
+// determine the winner, track scores, and provide functions to play 
+// moves and reset the game. It uses React's useState and useMemo hooks 
+// to manage state and optimize performance.
 function useTicTacToe() {
   const [squares, setSquares] = useState(emptyBoard)
   const [xIsNext, setXIsNext] = useState(true)
@@ -12,43 +15,40 @@ function useTicTacToe() {
   const draw = useMemo(() => isDraw(squares, winner), [squares, winner])
   const gameOver = Boolean(winner || draw)
   const turn = nextTurnLabel(xIsNext)
-
+//watches for the current state of the board and determines if 
+// there's a winner or if the game is a draw.
   function playMove(index) {
     if (gameOver || squares[index]) {
       return
     }
 
-    const activePlayer = turn
+    const next = [...squares]
+    next[index] = turn
 
-    setSquares((prev) => {
-      if (prev[index]) {
-        return prev
-      }
+    const nextWinner = calculateWinner(next)
+    const nextDraw = isDraw(next, nextWinner)
 
-      const next = [...prev]
-      next[index] = activePlayer
+    setSquares(next)
 
-      const nextWinner = calculateWinner(next)
-      const nextDraw = isDraw(next, nextWinner)
+    if (nextWinner) {
+      setScores((prevScores) => ({
+        ...prevScores,
+        [nextWinner.player]: prevScores[nextWinner.player] + 1,
+      }))
+      return
+    }
 
-      if (nextWinner) {
-        setScores((prevScores) => ({
-          ...prevScores,
-          [nextWinner.player]: prevScores[nextWinner.player] + 1,
-        }))
-      } else if (nextDraw) {
-        setScores((prevScores) => ({
-          ...prevScores,
-          ties: prevScores.ties + 1,
-        }))
-      } else {
-        setXIsNext((prevTurn) => !prevTurn)
-      }
+    if (nextDraw) {
+      setScores((prevScores) => ({
+        ...prevScores,
+        ties: prevScores.ties + 1,
+      }))
+      return
+    }
 
-      return next
-    })
+    setXIsNext((prevTurn) => !prevTurn)
   }
-
+//reset the board for a new round and reset the scores for a new match.
   function resetRound() {
     setSquares(emptyBoard)
     setXIsNext(true)
@@ -64,7 +64,7 @@ function useTicTacToe() {
     : draw
       ? 'Round is a draw.'
       : `Player ${turn}'s turn`
-
+//return for all the functions and variables that are needed in the components
   return {
     squares,
     winner,

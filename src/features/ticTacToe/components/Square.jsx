@@ -1,6 +1,8 @@
 function Square({ value, isWinningSquare, onClick, disabled }) {
   const visual = value === 'X' ? 'text-[var(--color-accent)]' : 'text-sky-700'
-
+//this is just the square component for the tic tac toe game it takes 
+// in the value of the square (X, O, or null), whether it's part of a winning line, 
+// and a click handler,
   return (
     <button
       className={[

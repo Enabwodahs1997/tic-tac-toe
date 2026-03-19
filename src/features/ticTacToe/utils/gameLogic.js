@@ -1,3 +1,6 @@
+//game logic for tic tac toe it defines the winning combinations, 
+// checks for a winner or a draw,
+
 const winningLines = [
   [0, 1, 2],
   [3, 4, 5],

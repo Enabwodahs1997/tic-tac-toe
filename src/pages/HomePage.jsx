@@ -7,17 +7,18 @@ function HomePage() {
 
       <aside className="grid gap-4">
         <article className="rounded-2xl border border-[var(--color-line)] bg-white p-5">
-          <h2 className="text-lg font-bold">How this is organized</h2>
+          <h2 className="text-lg font-bold">Tic-Tac-Toe Why People Love It</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-            Feature logic lives in <span className="font-mono">src/features</span>
-            with split files for board UI, score UI, and game state.
+            This simple yet engaging game has captivated players for decades, offering a perfect balance of strategy and accessibility.
+            Whether you're a casual gamer or a seasoned strategist, tic-tac-toe provides endless fun and friendly competition. 
+            Its timeless appeal lies in its simplicity, making it a beloved pastime for people of all ages.
           </p>
         </article>
         <article className="rounded-2xl border border-[var(--color-line)] bg-white p-5">
-          <h2 className="text-lg font-bold">Where to customize first</h2>
+          <h2 className="text-lg font-bold">Love of Strategy</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-            Update styles in <span className="font-mono">src/styles/theme.css</span>
-            and add routes in <span className="font-mono">src/app/router.jsx</span>.
+             We love <span className="font-mono">Strategy</span> and <span className="font-mono">Tic-Tac-Toe</span>.
+                The game is a great way to exercise your strategic thinking skills and have fun at the same time.
           </p>
         </article>
       </aside>
