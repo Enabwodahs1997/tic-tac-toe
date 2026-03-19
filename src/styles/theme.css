@@ -1,0 +1,31 @@
+@theme {
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  --color-paper: #f6f8fb;
+  --color-paper-soft: #e9eef8;
+  --color-ink: #0f172a;
+  --color-ink-soft: #475569;
+  --color-line: #d8e1ef;
+  --color-line-strong: #b8c7dd;
+  --color-accent: #d4512d;
+  --color-accent-glow: rgba(212, 81, 45, 0.26);
+  --color-secondary-glow: rgba(18, 100, 255, 0.18);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
