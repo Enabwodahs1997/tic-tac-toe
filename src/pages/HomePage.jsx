@@ -1,3 +1,4 @@
+import HomeButton from '../components/layout/HomeButton'
 import TicTacToeGame from '../features/ticTacToe/TicTacToeGame'
 
 function HomePage() {
@@ -20,6 +21,9 @@ function HomePage() {
              We love <span className="font-mono">Strategy</span> and <span className="font-mono">Tic-Tac-Toe</span>.
                 The game is a great way to exercise your strategic thinking skills and have fun at the same time.
           </p>
+          <div className="mt-4">
+            <HomeButton to="/explore">Home Button to Explore Page</HomeButton>
+          </div>
         </article>
       </aside>
     </section>
